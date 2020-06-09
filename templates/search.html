@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<table border="1">
+    <tr>
+        <th><form action="../">
+            <input type="submit" value="home">
+            </form>
+        </th>
+        <th><form action="../search/">
+            <input type="submit" value="Search">
+            </form>
+        </th>
+        <th><form action="../account_create/">
+            <input type="submit" value="Create Account">
+            </form>
+        </th>
+        <th><form action="../login/">
+            <input type="submit" value="Login">
+            </form>
+        </th>
+        <th><form action="../helpi/">
+            <input type="submit" value="About Us/Help">
+            </form>
+        </th><th><form action="../shopping_basket/">
+            <input type="submit" value="Shopping Basket">
+            </form>
+        </th><th><form action="../checkout/">
+            <input type="submit" value="Checkout">
+            </form>
+        </th>
+        </th><th><form action="../logout/">
+            <input type="submit" value="Logout">
+            </form>
+        </th>
+    </tr>
+</table>
+
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title> Search </title>
+    <h1>Book Information</h1>
+</head>
+
+<form class='form-login' action="/search/" method="post">
+
+    {% if message %}
+        <div class="alert alert-warning">{{ message }}</div>
+    {% endif %}
+
+    {% csrf_token %}
+    <h2 class="text-center">输入查询条件</h2>
+
+    <label for="id_username">书名</label>
+    <input type="text" name='bookname' class="form-control" id="id_username" placeholder="bookname" autofocus >
+
+    <label for="id_password">作者：</label>
+    <input type="text" name='bookauthor' class="form-control" id="id_password" placeholder="bookauthor">
+
+    <label for="id_password">ISBN：</label>
+    <input type="text" name='isbn' class="form-control" id="id_password" placeholder="isbn" autocomplete="off">
+
+    <button type="reset" class="btn btn-default pull-left">重置</button>
+    <button type="submit" class="btn btn-primary pull-right">提交</button>
+</form>
+
+<body>
+    <table border="1">
+        <tr>
+            <th>名称</th>
+            <th>作者</th>
+            <th>出版社</th>
+            <th>ISBN</th>
+            <th>类别</th>
+            <th>价格</th>
+            <th>剩余数量</th>
+            <th>图片</th>
+
+        </tr>
+        {% for book in books %}
+        <tr>
+            <td>{{ book.BookName }}</td>
+            <td>{{ book.BookAuthor }}</td>
+            <td>{{ book.BookPress }}</td>
+            <td>{{ book.ISBN }}</td>
+            <td>{{ book.BookCategory }}</td>
+            <td>{{ book.BookPrice }}</td>
+            <td>{{ book.BookRemainNum }}</td>
+            <td><img src={{ book.图片 }} ></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

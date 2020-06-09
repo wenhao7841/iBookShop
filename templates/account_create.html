@@ -1,0 +1,97 @@
+<table border="1">
+    <tr>
+        <th><form action="../">
+            <input type="submit" value="home">
+            </form>
+        </th>
+        <th><form action="../search/">
+            <input type="submit" value="Search">
+            </form>
+        </th>
+        <th><form action="../account_create/">
+            <input type="submit" value="Create Account">
+            </form>
+        </th>
+        <th><form action="../login/">
+            <input type="submit" value="Login">
+            </form>
+        </th>
+        <th><form action="../helpi/">
+            <input type="submit" value="About Us/Help">
+            </form>
+        </th><th><form action="../shopping_basket/">
+            <input type="submit" value="Shopping Basket">
+            </form>
+        </th><th><form action="../checkout/">
+            <input type="submit" value="Checkout">
+            </form>
+        </th>
+        </th><th><form action="../logout/">
+            <input type="submit" value="Logout">
+            </form>
+        </th>
+    </tr>
+</table>
+
+<h1>Account Create</h1>
+<!-- <form action="../s_account">
+用户名
+<textarea cols=30 rows=1 name='username'>在此处输入用户名</textarea>
+<br>
+<br>
+密码
+<textarea cols=30 rows=1 name='key'>在此输入你设置的密码</textarea>
+<br>
+<br>
+邮件
+<textarea cols=30 rows=1 name='email'>在此输入你的邮箱</textarea>
+<br>
+<br>
+<input type="submit" value="提交注册信息">
+</form> -->
+
+<form class='form-create' action="/account_create/" method="post">
+
+    {% if message %}
+        <div class="alert alert-warning">{{ message }}</div>
+    {% endif %}
+
+    {% csrf_token %}
+    <h2 class="text-center">请填写注册信息</h2>
+    <div class="form-group">
+        <label for="id_memberaccount">账号：</label>
+        <input type="text" name='memberaccount' class="form-control" id="id_memberaccount" placeholder="memberaccount"
+               autofocus required autocomplete="off">
+    </div>
+    <div class="form-group">
+        <label for="id_memberpassword">密码：</label>
+        <input type="password" name='memberpassword' class="form-control" id="id_memberpassword" placeholder="memberpassword"
+               required autocomplete="off">
+               <script language="JavaScript" type="text/javascript">
+                str=getElementById('password').value
+                if(str.length<6){
+                 alert('小于六位');
+                }
+                </script>
+    </div>
+    <div class="form-group">
+        <label for="id_memberpassword">确认密码：</label>
+        <input type="password" name='memberpasswordagain' class="form-control" id="id_memberpassword" placeholder="memberpassword-again"
+               required autocomplete="off">
+    </div>
+    <div class="form-group">
+        <label for="id_memberpassword">昵称：</label>
+        <input type="text" name='membername' class="form-control" id="id_memberpassword" placeholder="membername"
+               required autocomplete="off">
+    </div>    <div class="form-group">
+        <label for="id_memberpassword">地址：</label>
+        <input type="text" name='memberaddress' class="form-control" id="id_memberpassword" placeholder="memberaddress"
+               required autocomplete="off">
+    </div>    <div class="form-group">
+        <label for="id_memberpassword">电话：</label>
+        <input type="text" name='memberphone' class="form-control" id="id_memberpassword" placeholder="memberphone"
+               required autocomplete="off">
+    </div>
+    <button type="reset" class="btn btn-default pull-left">重置</button>
+    <button type="submit" class="btn btn-primary pull-right">提交</button>
+</form>

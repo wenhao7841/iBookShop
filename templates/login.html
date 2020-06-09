@@ -1,0 +1,74 @@
+<table border="1">
+    <tr>
+        <th><form action="../">
+            <input type="submit" value="home">
+            </form>
+        </th>
+        <th><form action="../search/">
+            <input type="submit" value="Search">
+            </form>
+        </th>
+        <th><form action="../account_create/">
+            <input type="submit" value="Create Account">
+            </form>
+        </th>
+        <th><form action="../login/">
+            <input type="submit" value="Login">
+            </form>
+        </th>
+        <th><form action="../helpi/">
+            <input type="submit" value="About Us/Help">
+            </form>
+        </th><th><form action="../shopping_basket/">
+            <input type="submit" value="Shopping Basket">
+            </form>
+        </th><th><form action="../checkout/">
+            <input type="submit" value="Checkout">
+            </form>
+        </th>
+        </th><th><form action="../logout/">
+            <input type="submit" value="Logout">
+            </form>
+        </th>
+    </tr>
+</table>
+
+<h1>Login</h1>
+
+
+
+<!-- <form action="../login" class='post'>
+    {% if message %}
+        <div class="alert alert-warning">{{ message }}</div>
+    {% endif %} 
+    账号
+    <textarea cols=30 rows=1 name='memberacount'>在此处输入账号</textarea>
+    <br>
+    <br>
+    密码
+    <textarea cols=30 rows=1 name='memberpassword'>在此输入你的密码</textarea>
+    <br>
+    <br>
+    <input type="submit" value="登陆">
+</form> -->
+<form class='form-login' action="/login/" method="post">
+
+    {% if message %}
+        <div class="alert alert-warning">{{ message }}</div>
+    {% endif %}
+
+    {% csrf_token %}
+    <h2 class="text-center">欢迎登录</h2>
+    <div class="form-group">
+        <label for="id_username">账号：</label>
+        <input type="text" name='memberaccount' class="form-control" id="id_username" placeholder="MemberAccount"
+               autofocus required>
+    </div>
+    <div class="form-group">
+        <label for="id_password">密码：</label>
+        <input type="password" name='memberpassword' class="form-control" id="id_password" placeholder="MemberPassword"
+               required>
+    </div>
+    <button type="reset" class="btn btn-default pull-left">重置</button>
+    <button type="submit" class="btn btn-primary pull-right">提交</button>
+</form>

@@ -1,0 +1,70 @@
+<table border="1">
+    <tr>
+        <th><form action="../">
+            <input type="submit" value="home">
+            </form>
+        </th>
+        <th><form action="../search/">
+            <input type="submit" value="Search">
+            </form>
+        </th>
+        <th><form action="../account_create/">
+            <input type="submit" value="Create Account">
+            </form>
+        </th>
+        <th><form action="../login/">
+            <input type="submit" value="Login">
+            </form>
+        </th>
+        <th><form action="../helpi/">
+            <input type="submit" value="About Us/Help">
+            </form>
+        </th><th><form action="../shopping_basket/">
+            <input type="submit" value="Shopping Basket">
+            </form>
+        </th><th><form action="../checkout/">
+            <input type="submit" value="Checkout">
+            </form>
+        </th>
+        </th><th><form action="../logout/">
+            <input type="submit" value="Logout">
+            </form>
+        </th>
+    </tr>
+</table>
+
+<h1>Shopping Basket</h1>
+<form action="../shopping_basket">
+<table border="3">
+<tr>
+    <td>订单号      </td>
+    <td>国际标准书号</td>
+    <td>书籍名称    </td>
+    <td>购买数量    </td>
+    <td>下单时间    </td>
+    <td>支付状态    </td>
+    <td>修改的数目  </td>
+    <td>删除        <td>
+</tr>
+{% for order in orders %}
+<tr>
+    <td>{{ order.OrderID }}</td>
+    <td>{{ order.ISBN }}</td>
+    <td>{{ order.OrderID }}</td>
+    <td>{{ order.OrderNum }}</td>
+    <td>{{ order.OrderTime }}</td>
+    <td>{{ order.OrderState }}</td>
+    <td><textarea cols=10 rows=1 name='change_num'>数量</textarea>
+    <input type="submit" value="确定"></td>
+    <td><input type="submit" value="确定"></td>
+</tr>
+{% endfor %}
+
+
+
+</table>
+</form>
+<form action="../checkout">
+<br>
+<input type="submit" value="Checkout">
+</form>
